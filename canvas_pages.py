@@ -66,7 +66,9 @@ def push(slugs):
         live, _ = api("GET", f"/courses/{COURSE}/pages/{slug}")
         (BACKUPS / f"{slug}.{stamp}.html").write_text(live.get("body") or "")
         body = (PAGES / f"{slug}.html").read_text()
-        api("PUT", f"/courses/{COURSE}/pages/{slug}", {"wiki_page[body]": body})
+        saved, _ = api("PUT", f"/courses/{COURSE}/pages/{slug}", {"wiki_page[body]": body})
+        # Canvas normalizes HTML on save; keep its version so later edits start from live content
+        (PAGES / f"{slug}.html").write_text(saved.get("body") or "")
         print(f"pushed {slug} (backup: backups/{slug}.{stamp}.html)")
 
 
