@@ -25,7 +25,7 @@ def set_alts(body, alts):
         return tag.replace("<img", f'<img alt="{alt}"', 1)
 
     done = set()
-    body = re.sub(r"<img\b[^>]*>", repl, body)
+    body = re.sub(r"""<img\b(?:[^>"']|"[^"]*"|'[^']*')*>""", repl, body)
     missing = set(alts) - done
     if missing:
         raise SystemExit(f"image ids not found on page: {sorted(missing)}")
