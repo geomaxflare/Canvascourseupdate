@@ -5,6 +5,9 @@ Usage:
   python3 canvas_assignments.py list                 # assignments with submission counts
   python3 canvas_assignments.py show <assignment_id> # instructions, points, rubric
   python3 canvas_assignments.py pull <assignment_id> # download submissions and extract text
+  python3 canvas_assignments.py grade <assignment_id> <grades.json>
+                                                     # enter scores only (no comments); the file is a
+                                                     # JSON list of [user_id, name, score]
 
 `pull` writes to submissions/<assignment_id>/ (git-ignored: student work is FERPA-protected):
   assignment.md            instructions and rubric as text
@@ -143,10 +146,23 @@ def cmd_pull(aid):
     print(f"{len(index)} submissions in {dest}")
 
 
+def cmd_grade(aid, grades_file):
+    a, _ = api("GET", f"/courses/{COURSE}/assignments/{aid}")
+    for user_id, name, score in json.loads(Path(grades_file).read_text()):
+        if not 0 <= float(score) <= float(a["points_possible"]):
+            sys.exit(f"{name}: score {score} is outside 0-{a['points_possible']}; nothing more entered")
+        s, _ = api("PUT", f"/courses/{COURSE}/assignments/{aid}/submissions/{user_id}",
+                   {"submission[posted_grade]": str(score)})
+        print(f"graded {name}: {s.get('score')}")
+    print("grades post to students now" if not a.get("post_manually") else "grades are hidden until posted")
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if args == ["list"]:
         cmd_list()
+    elif len(args) == 3 and args[0] == "grade":
+        cmd_grade(args[1], args[2])
     elif len(args) == 2 and args[0] in ("show", "pull"):
         {"show": cmd_show, "pull": cmd_pull}[args[0]](args[1])
     else:
