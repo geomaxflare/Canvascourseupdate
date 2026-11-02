@@ -1,4 +1,4 @@
-# Module 4: Distributed Processing
+# Module 3: Distributed Processing
 
 ## Introduction
 

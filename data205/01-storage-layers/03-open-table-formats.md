@@ -29,7 +29,7 @@ GROUP BY state;
 
 ### The lakehouse
 
-Combining low-cost object storage, open table formats, and SQL engines produces what is often called a **lakehouse**: the flexibility and cost of a data lake with the reliability and performance of a data warehouse.
+Combining low-cost object storage, open table formats, and SQL engines produces what is often called a **lakehouse**: the flexibility and cost of a data lake with the reliability and performance of a data warehouse. Module 2 returns to the lakehouse and shows how dimensional models are built on it.
 
 ### Check yourself
 

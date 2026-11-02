@@ -1,4 +1,4 @@
-# Module 5: Non-Relational Data Stores
+# Module 4: Non-Relational Data Stores
 
 ## Introduction
 

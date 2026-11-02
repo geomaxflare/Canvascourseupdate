@@ -1,4 +1,4 @@
-# Module 7: Preparing Data for AI and Machine Learning
+# Module 6: Preparing Data for AI and Machine Learning
 
 ## Introduction
 

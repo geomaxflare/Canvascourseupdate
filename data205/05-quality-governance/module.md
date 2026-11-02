@@ -1,4 +1,4 @@
-# Module 6: Data Quality and Governance
+# Module 5: Data Quality and Governance
 
 ## Introduction
 

@@ -16,7 +16,7 @@ Lineage supports:
 - **Impact analysis:** before changing a table, see every downstream report it will affect.
 - **Compliance:** show auditors where sensitive data flows.
 
-Transformation tools and orchestrators can capture lineage automatically from the code, which keeps it accurate as pipelines change.
+Many data platforms and transformation tools capture lineage automatically from the code, which keeps it accurate as pipelines change.
 
 ### Data catalogs
 
