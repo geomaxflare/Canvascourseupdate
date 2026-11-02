@@ -72,11 +72,13 @@ def md_to_html(md):
             out.append(table(rows))
         elif re.match(r"(- |\d+\. )", line):
             tag = "ul" if line.startswith("- ") else "ol"
+            # an ordered list split by a code block continues its numbering
+            start = "" if tag == "ul" or line.startswith("1. ") else f' start="{line.split(".")[0]}"'
             items = []
             while i < len(lines) and re.match(r"(- |\d+\. )", lines[i]):
                 items.append(re.sub(r"^(- |\d+\. )", "", lines[i]))
                 i += 1
-            out.append(f"<{tag}>" + "".join(f"<li>{inline(t)}</li>" for t in items) + f"</{tag}>")
+            out.append(f"<{tag}{start}>" + "".join(f"<li>{inline(t)}</li>" for t in items) + f"</{tag}>")
         elif line.strip():
             para = []
             while i < len(lines) and lines[i].strip() and not re.match(r"(```|### |\||- |\d+\. )", lines[i]):
@@ -98,7 +100,16 @@ def sections(md):
     return {m.group(1): m.group(2).strip() for m in re.finditer(r"^## (.+?)\n(.*?)(?=^## |\Z)", md, re.M | re.S)}
 
 
-def overview_html(module_title, intro, objectives, activities):
+def extra_sections_html(extras):
+    """Sections after Objectives in module.md (Readings, Tools and Data, ...) as their own block."""
+    if not extras:
+        return ""
+    blocks = "".join(f'<h3 class="dp-has-icon" {H3}><i class="dp-icon fas fa-book cp-bg-dp-secondary" aria-hidden="true">{ICON}</i> {html.escape(name)}</h3>\n{md_to_html(body)}\n'
+                     for name, body in extras)
+    return f'<div class="dp-content-block">\n{blocks}</div>\n'
+
+
+def overview_html(module_title, intro, objectives, activities, extras=()):
     topic = module_title.split(": ", 1)[-1]
     number = module_title.split(":")[0]
     return f'''{CSS}<div id="dp-wrapper" class="dp-wrapper dp-flat-sections variation-2 cp-bg-dp-primary" style="background-color: #ffffff; color: #000000;" data-header-class="dp-header dp-flat-sections variation-2" data-nav-class="container-fluid dp-link-grid dp-flat-sections variation-2 dp-fs-2" data-img-url="https://designtools.ciditools.com/css/images/banner_desert_sky.png"><header class="dp-header dp-flat-sections variation-2 cp-bg-dp-primary" style="background-color: #0055a4; color: #ffffff;">
@@ -115,7 +126,7 @@ def overview_html(module_title, intro, objectives, activities):
 <p>In this module, you will work through the following, in order:</p>
 {activities}
 </div>
-</div>{JS}'''
+{extra_sections_html(extras)}</div>{JS}'''
 
 
 def get_all(path):
@@ -158,7 +169,8 @@ def build(course, content_dir):
                                            {"module[name]": title, "module[published]": "false"})[0]
         existing = get_all(f"/courses/{course}/modules/{module['id']}/items?per_page=100")
         overview_title = f"{title.split(':')[0]} Overview: {title.split(': ', 1)[-1]}"
-        overview = upsert_page(course, overview_title, overview_html(title, parts["Introduction"], parts["Objectives"], ""))
+        extras = [(k, v) for k, v in parts.items() if k not in ("Introduction", "Objectives")]
+        overview = upsert_page(course, overview_title, overview_html(title, parts["Introduction"], parts["Objectives"], "", extras))
         ensure_item(course, module["id"], overview, 1, existing)
         links = []
         for n, page_file in enumerate(sorted(folder.glob("[0-9]*.md")), start=2):
@@ -167,7 +179,7 @@ def build(course, content_dir):
             item = ensure_item(course, module["id"], page, n, existing)
             links.append(f'<li>Read <a href="{item["html_url"]}">{html.escape(page_title)}</a>.</li>')
         upsert_page(course, overview_title, overview_html(title, parts["Introduction"], parts["Objectives"],
-                                                          "<ol>" + "".join(links) + "</ol>"))
+                                                          "<ol>" + "".join(links) + "</ol>", extras))
         api("PUT", f"/courses/{course}/modules/{module['id']}", {"module[published]": "false"})
         print(f"{title}: overview + {len(links)} pages (unpublished)")
 
