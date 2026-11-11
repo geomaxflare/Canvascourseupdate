@@ -8,6 +8,9 @@ Usage:
   python3 canvas_assignments.py grade <assignment_id> <grades.json>
                                                      # enter scores only (no comments); the file is a
                                                      # JSON list of [user_id, name, score]
+  python3 canvas_assignments.py comment <assignment_id> <comments.json>
+                                                     # post a submission comment to each student; the
+                                                     # file is a JSON list of [user_id, name, text]
 
 `pull` writes to submissions/<assignment_id>/ (git-ignored: student work is FERPA-protected):
   assignment.md            instructions and rubric as text
@@ -157,12 +160,21 @@ def cmd_grade(aid, grades_file):
     print("grades post to students now" if not a.get("post_manually") else "grades are hidden until posted")
 
 
+def cmd_comment(aid, comments_file):
+    for user_id, name, text in json.loads(Path(comments_file).read_text()):
+        s, _ = api("PUT", f"/courses/{COURSE}/assignments/{aid}/submissions/{user_id}",
+                   {"comment[text_comment]": text})
+        print(f"commented {name}: {len(s.get('submission_comments') or [])} comment(s) on submission")
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if args == ["list"]:
         cmd_list()
     elif len(args) == 3 and args[0] == "grade":
         cmd_grade(args[1], args[2])
+    elif len(args) == 3 and args[0] == "comment":
+        cmd_comment(args[1], args[2])
     elif len(args) == 2 and args[0] in ("show", "pull"):
         {"show": cmd_show, "pull": cmd_pull}[args[0]](args[1])
     else:
