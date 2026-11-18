@@ -51,5 +51,15 @@ Employers increasingly expect entry-level analysts to use AI tools, and they als
 
 ## Resources
 
-- Sinclair College AI Institute, Resources and Publications (sinclair.edu/academics/divisions/elearning-division/ai-institute/resources-publications/), including its AI Cookbook of example prompts and the CARS model (Care, Acknowledge, Review, Support) for ethical AI use.
-- Dakan and Feller, *AI Fluency: Framework and Foundations*, Anthropic Academy (anthropic.skilljar.com/ai-fluency-framework-foundations), licensed CC BY-NC-SA 4.0. The 4D framework used in this module comes from this course.
+Job aids from the [Sinclair College AI Excellence Institute](https://www.sinclair.edu/academics/divisions/elearning-division/ai-institute/resources-publications/), used throughout this module. Download them and keep them handy:
+
+- [CLEAR Prompting Job Aid](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/PromptingJobAid%28CLEARFramework%29.pdf) (Part 3)
+- [Output Analysis Guide](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/OutputAnalysisGuide.pdf): six validation steps and countering sycophancy (Part 4)
+- [How to Identify and Analyze Bias](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/BiasChecklist.pdf) (Part 5)
+- [Privacy Guide for AI Use](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/PrivacyGuideforAIUse.pdf) (Part 5)
+- [Artificial Intelligence Disclosure (AID) Framework](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/AIDFramework-Acknowledging.pdf), required for the assignment (Part 5)
+- [AI Basics: Responsible and Effective Use](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/BestPracticesforAIUse.pdf) and [AI: Fears, Myths, and Facts](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/AIFearsMythsandFacts.pdf) (Part 1)
+- [Glossary of AI Terms](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/AIGlossary.pdf)
+- [Sinclair AI Library Guide](https://libguides.sinclair.edu/ai/home)
+
+The 4D framework comes from Dakan and Feller, [AI Fluency: Framework and Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations), Anthropic Academy, licensed CC BY-NC-SA 4.0.

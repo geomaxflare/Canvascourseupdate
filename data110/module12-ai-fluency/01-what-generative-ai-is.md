@@ -44,6 +44,18 @@ Several consequences follow directly from this design:
 | Suggesting chart types and analysis approaches | Your organization's definitions, data, and policies |
 | Brainstorming questions and edge cases | Citing real sources accurately |
 
+### Myths and facts
+
+Sinclair College's AI Excellence Institute summarizes common misconceptions in [AI: Fears, Myths, and Facts](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/AIFearsMythsandFacts.pdf). Three matter most for analysts:
+
+| Myth | Fact |
+| --- | --- |
+| AI is sentient and understands what it says | AI has no awareness; it generates text from patterns in its training data |
+| AI knows everything | AI only knows what it was trained on or what you give it, and it still makes mistakes |
+| AI is always objective and unbiased | AI can reflect the biases in its training data (Part 5) |
+
+Keep Sinclair's [Glossary of AI Terms](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/AIGlossary.pdf) handy as you work through this module.
+
 ### Check your understanding
 
 1. In one or two sentences, explain to a classmate why an LLM can write a convincing but false statistic.

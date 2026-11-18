@@ -49,6 +49,20 @@ After each query, explain in one sentence what it does.
 
 This prompt states the tool and version, describes what one row represents, lists exact column names and types, shows the problem with real examples, sets a safety constraint (SELECT only), and specifies the format.
 
+### Checking a prompt with CLEAR
+
+Sinclair College's AI Excellence Institute uses the **CLEAR** framework, developed by librarian Leo Lo and adapted by Sinclair, as a checklist for drafting and evaluating prompts. Download the [CLEAR Prompting Job Aid](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/PromptingJobAid%28CLEARFramework%29.pdf) and keep it next to you as you work.
+
+| Letter | Goal | Check for the census prompt above |
+| --- | --- | --- |
+| **C**oncise | A focused prompt with a clear task verb (describe, analyze, write, summarize); no unnecessary words | "Write two SELECT queries" states the task directly |
+| **L**ogical | Instructions in a clear, sensible order | Context first, then the problems, then numbered queries |
+| **E**xplicit | Output requirements: format, audience, tone, and constraints | SELECT only, MySQL 8, one-sentence explanation after each query |
+| **A**daptive | Refine through follow-up prompts when the output misses the goal | The follow-up prompts in the next section |
+| **R**eflective | Verify every claim in the output and check sources | Running the queries against the real table (Part 4) |
+
+The prompt elements in the table at the top of this page tell you *what* to include; CLEAR tells you *how well* the prompt is written and reminds you that the work is not finished until the output is verified.
+
 ### Iteration: treat it as a conversation
 
 The first answer is a draft. Improve it with follow-up prompts instead of rewriting from scratch:
@@ -82,7 +96,7 @@ Using any approved AI assistant:
 3. Run the queries from the strong prompt in MySQL Workbench against your census table from Module 3. Do they find the problems you found before?
 4. Write one follow-up prompt that improves the result, and note what changed.
 
-Keep your notes; you will use this practice in the assignment.
+Check your strong prompt against each letter of CLEAR. Keep your notes; you will use this practice in the assignment.
 
 ### Check your understanding
 

@@ -7,9 +7,9 @@ In the workplace, you will be expected to use AI tools to work faster *and* to s
 **Skills you will practice:**
 
 - Deciding which parts of a task to delegate to AI (Delegation).
-- Writing structured prompts and refining them through iteration (Description).
+- Writing structured prompts with the CLEAR framework and refining them through iteration (Description).
 - Verifying AI-generated code and results (Discernment).
-- Protecting data and disclosing AI use (Diligence).
+- Protecting data and disclosing AI use with an AID statement (Diligence).
 
 **Knowledge you will gain:** a realistic picture of what current AI assistants can and cannot do for an analyst, and a documented workflow you can reuse on the job and describe in interviews.
 
@@ -24,9 +24,9 @@ In the workplace, you will be expected to use AI tools to work faster *and* to s
 **Then complete these steps:**
 
 1. **Plan (Delegation).** Before using AI, write 3 to 5 sentences listing which parts of the task you will delegate to AI, which parts you will do yourself, and why.
-2. **Prompt (Description).** Use an approved AI assistant to complete the analysis. Write at least one structured prompt that includes task, context, and format, as described in Part 3.
+2. **Prompt (Description).** Use an approved AI assistant to complete the analysis. Write at least one structured prompt that includes task, context, and format, and check it against the CLEAR job aid (Part 3).
 3. **Iterate.** Use at least two follow-up prompts to correct, narrow, or extend the AI's work.
-4. **Verify (Discernment).** Run all AI-generated code yourself. Perform at least **two** verification checks from Part 4, such as comparing row counts, spot-checking known records, or checking the test's conditions, and compare the AI's results with your original results from earlier in the course.
+4. **Verify (Discernment).** Run all AI-generated code yourself. Perform at least **two** verification checks from Part 4, such as comparing row counts, spot-checking known records, or checking the test's conditions, and compare the AI's results with your original results from earlier in the course. Apply the six validation steps from Sinclair's Output Analysis Guide to at least one AI explanation.
 5. **Protect data (Diligence).** Confirm that you shared only public data or column names, never personal information.
 6. **Keep a prompt log.** Record every prompt and summarize each response in a table like this:
 
@@ -35,9 +35,9 @@ In the workplace, you will be expected to use AI tools to work faster *and* to s
 | 1 | ... | ... | ... |
 
 7. **Reflect.** Write 250 to 400 words answering: Where did AI save you time? What did it get wrong or leave out, and how did you catch it? How did your prompts change the results? Would you trust this tool with this task at work, and under what conditions? Use each of the four Ds at least once in your reflection.
-8. **Disclose.** End with a 2 to 3 sentence AI use statement, as shown in Part 5.
+8. **Disclose.** End with an AID statement (tool and date, purpose of use, human oversight), as shown in Part 5.
 
-**What to submit:** one Word or PDF document containing your plan, prompt log, verification checks with evidence (output or screenshots), final results, reflection, and AI use statement. Also upload your final SQL or R script.
+**What to submit:** one Word or PDF document containing your plan, prompt log, verification checks with evidence (output or screenshots), final results, reflection, and AID statement. Also upload your final SQL or R script.
 
 ### Criteria for Success
 
@@ -46,17 +46,17 @@ Your work is graded on the following criteria (3 points total).
 | Criterion | Full credit (0.6) | Partial credit (0.3) | No credit (0) |
 | --- | --- | --- | --- |
 | **Delegation plan** | Clear plan stating what was delegated, what was kept, and why | Plan present but vague or missing reasons | Missing |
-| **Prompting and iteration** | At least one structured prompt with task, context, and format, and at least two meaningful follow-ups, all logged | Prompts logged but unstructured, or fewer than two follow-ups | Missing |
+| **Prompting and iteration** | At least one structured prompt with task, context, and format that meets the CLEAR checklist, and at least two meaningful follow-ups, all logged | Prompts logged but unstructured, or fewer than two follow-ups | Missing |
 | **Verification** | Code run by the student; at least two verification checks shown with evidence; results compared with the earlier assignment | Only one check, or checks described without evidence | Missing |
 | **Reflection** | 250 to 400 words; specific examples; uses all four Ds accurately; honest assessment of strengths and weaknesses | Generic, too short, or missing some of the four Ds | Missing |
-| **Diligence and disclosure** | No personal or confidential data shared; clear AI use statement | Statement present but incomplete | Missing statement, or sensitive data shared |
+| **Diligence and disclosure** | No personal or confidential data shared; complete AID statement with tool and date, purpose, and human oversight | AID statement missing a part | Missing statement, or sensitive data shared |
 
 **Before you submit, check that you:**
 
 - copied your prompts exactly, including the ones that did not work well;
 - ran every piece of AI-generated code yourself;
 - showed evidence for each verification check;
-- included your AI use statement.
+- included your AID statement.
 
 ### Example of a strong prompt log entry
 

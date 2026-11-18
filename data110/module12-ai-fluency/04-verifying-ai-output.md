@@ -46,6 +46,27 @@ You describe the `sleep` dataset to an AI ("extra hours of sleep for patients on
 
 Ask an assistant without a data analysis tool, "What is the average fare of NYC yellow taxi trips in January 2024?" It may give a confident, specific number. Unless it actually loaded the data and calculated the value, treat that number as unverified. Either compute it yourself or ask the AI to write code you can run on the real file.
 
+### Six validation steps
+
+Sinclair's [Output Analysis Guide](https://www.sinclair.edu/sites/www/assets/File/Hom-Aca-AcaDiv-eLearn/OutputAnalysisGuide.pdf), adapted from the University of Geneva, gives a general method for checking any AI output, whether it is a paragraph, a list of facts, or an explanation of code:
+
+1. **Fractionation:** break the output into individual claims that each need checking.
+2. **Lateral reading:** verify each claim with independent sources, such as course materials, documentation, or databases, not the AI itself.
+3. **Check contextual accuracy:** confirm the information applies to the right context, such as the correct version of R, the right database, or the right time period.
+4. **Analyze assumptions:** identify what the AI assumed, and what you assumed when you wrote the prompt.
+5. **Make a judgment call:** decide what is accurate, incomplete, or misleading.
+6. **Repeat** for each claim.
+
+For example, an AI explanation of a chi-square result might contain four claims: the test used, the p-value, the conclusion, and the condition that expected counts are at least 5. Each is checked separately against the R output and Module 11.
+
+### Watch for sycophancy
+
+AI assistants tend to agree with the user. If you write "I'm sure this inner join is correct, right?", the AI is more likely to confirm it than to find the missing state. The Output Analysis Guide recommends:
+
+- **Use neutral prompts:** "Review this query for errors" instead of "This query is correct, right?"
+- **Ask for reasoning, not just conclusions:** "Explain each step and what could go wrong."
+- **Invite disagreement:** "If I'm wrong, correct me. Prioritize accuracy over agreeing with me."
+
 ### A verification checklist for analytics
 
 - **Run it:** execute every query, formula, or script yourself before using its results.
@@ -60,7 +81,8 @@ Ask an assistant without a data analysis tool, "What is the average fare of NYC 
 
 1. Ask an AI to write the inner-join query above (or use the version shown). Run the distinct-count validation from the SQL lesson. Did it catch the missing state?
 2. Describe the `sleep` dataset to an AI *without* saying the measurements are paired, and ask which test to use. Then add that detail. Compare the two answers.
-3. Ask an AI a factual question about your field and ask it for sources. Check whether the sources exist and say what it claims.
+3. Ask an AI a factual question about your field and ask it for sources. Apply the six validation steps: break the answer into claims and check whether each source exists and says what the AI claims.
+4. Send a leading prompt ("This inner join is correct, right?") and a neutral one ("Review this query for errors") in separate chats. Compare the answers.
 
 ### Check your understanding
 

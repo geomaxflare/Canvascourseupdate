@@ -34,8 +34,8 @@ AI tools change every few months. Instead of memorizing features, build habits t
 
 - **Test new tools on a problem you already know the answer to,** as you do in this module's assignment. It is the fastest way to see a tool's strengths and weaknesses.
 - **Check each tool's data and privacy terms** before using it with real data.
-- **Follow a few reliable sources,** such as your professional community, vendor documentation, and the AI resources published by colleges such as Sinclair's AI Institute.
-- **Keep a prompt library** of prompts that worked well for recurring tasks; Sinclair's AI Cookbook is an example of this practice.
+- **Follow a few reliable sources,** such as your professional community, vendor documentation, and the [Sinclair AI Excellence Institute's resources](https://www.sinclair.edu/academics/divisions/elearning-division/ai-institute/resources-publications/), which include podcasts such as *Practical AI* and reports such as Stanford's annual [AI Index](https://hai.stanford.edu/ai-index/2025-ai-index-report).
+- **Keep a prompt library** of prompts that worked well for recurring tasks, checked with CLEAR (Part 3).
 
 ### Check your understanding
 
