@@ -8,9 +8,10 @@ Usage:
   module.md        "# Module N: Title", then Introduction, Objectives, and any other "## " sections
                    (shown on the overview before the activity list, e.g. TILT purpose and criteria)
   NN-slug.md       teaching pages, in order
-  assignment.md    optional: "# Assignment name", then its description
-  module.json      canvas_module (existing module name), overview_title, optional assignment
-                   settings, and trailing items (subheaders and existing files) to keep at the end
+  assignment*.md   optional: "# Assignment name", then its description
+  module.json      canvas_module (existing module name), overview_title, assignment settings
+                   ("assignment" for assignment.md, or an "assignments" list naming each file,
+                   optionally only_visible_to_overrides), and trailing items to keep at the end
 
 New pages and the assignment are created unpublished. Re-running updates them in place.
 """
@@ -45,7 +46,9 @@ def upsert_assignment(course, name, body, settings):
     data = [("assignment[name]", name), ("assignment[description]", body),
             ("assignment[points_possible]", settings["points"]),
             ("assignment[assignment_group_id]", settings["group_id"]),
-            ("assignment[published]", "false")]
+            ("assignment[published]", "false"),
+            # visible only to students given an override (for example, an opt-out alternative)
+            ("assignment[only_visible_to_overrides]", str(settings.get("only_visible_to_overrides", False)).lower())]
     data += [("assignment[submission_types][]", t) for t in settings["submission_types"]]
     if found:
         a, _ = api("PUT", f"/courses/{course}/assignments/{found[0]['id']}", data)
@@ -73,13 +76,20 @@ def update(course, content_dir):
         item = place(course, module["id"], existing, pos, type="Page", page_url=page["url"])
         links.append(f'<li>Read <a href="{item["html_url"]}">{html.escape(page_title)}</a>.</li>')
         pos += 1
-    if (folder / "assignment.md").exists():
-        name, body = split_title((folder / "assignment.md").read_text())
+    assignments = cfg.get("assignments") or ([dict(cfg["assignment"], file="assignment.md")]
+                                             if (folder / "assignment.md").exists() else [])
+    if assignments:
         place(course, module["id"], existing, pos, type="SubHeader", title="Assignment")
-        assignment = upsert_assignment(course, name, CSS + md_to_html(body) + JS, cfg["assignment"])
-        item = place(course, module["id"], existing, pos + 1, type="Assignment", content_id=assignment["id"])
-        links.append(f'<li>Complete <a href="{item["html_url"]}">{html.escape(name)}</a>.</li>')
-        pos += 2
+        pos += 1
+    for settings in assignments:
+        name, body = split_title((folder / settings["file"]).read_text())
+        assignment = upsert_assignment(course, name, CSS + md_to_html(body) + JS, settings)
+        item = place(course, module["id"], existing, pos, type="Assignment", content_id=assignment["id"])
+        if settings.get("only_visible_to_overrides"):
+            links.append(f'<li>Or, if you have chosen not to use AI and your instructor has assigned it to you, complete <a href="{item["html_url"]}">{html.escape(name)}</a>.</li>')
+        else:
+            links.append(f'<li>Complete <a href="{item["html_url"]}">{html.escape(name)}</a>.</li>')
+        pos += 1
     for extra in cfg.get("trailing", []):
         if "subheader" in extra:
             place(course, module["id"], existing, pos, type="SubHeader", title=extra["subheader"])

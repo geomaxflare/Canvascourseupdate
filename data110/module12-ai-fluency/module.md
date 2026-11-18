@@ -22,6 +22,7 @@ Employers increasingly expect entry-level analysts to use AI tools, and they als
 ## How You Will Be Assessed
 
 - **Assignment - AI-Assisted Analysis with a Prompt Log (3 points):** use an AI assistant to redo one analysis from earlier in the course, document every prompt, verify the output, and reflect using the 4D framework. The assignment page lists every step and the grading criteria.
+- **Prefer not to use AI?** An alternative assignment with the same objectives and points lets you evaluate sample AI responses without using any AI tool. Message your instructor and they will assign it to you.
 - **Optional AI credential:** after this module, you will have covered the content of the free or low-cost credentials listed below. Earning one is encouraged but not required.
 
 ## Plan Your Time (about 8 hours)

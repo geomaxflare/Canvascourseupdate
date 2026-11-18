@@ -1,5 +1,9 @@
 # Assignment - AI-Assisted Analysis with a Prompt Log
 
+### Prefer not to use AI?
+
+If you choose not to use AI tools for personal reasons, you can complete **Alternative Assignment - Evaluating AI-Assisted Analysis (No AI Use)** instead, which meets the same objectives for the same points. You do not need to explain why. Send your instructor a Canvas message before you begin, and your instructor will assign the alternative to you in place of this assignment.
+
 ### Purpose
 
 In the workplace, you will be expected to use AI tools to work faster *and* to stand behind every result you deliver. In this assignment, you will redo an analysis you have already completed in this course, this time with an AI assistant. Because you already know what a correct answer looks like, you can judge exactly where the AI helped, where it went wrong, and how you caught it.

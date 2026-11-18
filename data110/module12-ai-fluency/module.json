@@ -1,6 +1,24 @@
 {
   "canvas_module": "Module 12 AI Fluency for Data Analytics",
   "overview_title": "Module 12 Overview: AI Fluency for Data Analytics",
-  "assignment": {"points": 3, "group_id": 257463, "submission_types": ["online_upload"]},
-  "trailing": []
+  "trailing": [],
+  "assignments": [
+    {
+      "file": "assignment.md",
+      "points": 3,
+      "group_id": 257463,
+      "submission_types": [
+        "online_upload"
+      ]
+    },
+    {
+      "file": "assignment-alternative.md",
+      "points": 3,
+      "group_id": 257463,
+      "submission_types": [
+        "online_upload"
+      ],
+      "only_visible_to_overrides": true
+    }
+  ]
 }
