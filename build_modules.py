@@ -109,7 +109,7 @@ def extra_sections_html(extras):
     return f'<div class="dp-content-block">\n{blocks}</div>\n'
 
 
-def overview_html(module_title, intro, objectives, activities, extras=()):
+def overview_html(module_title, intro, objectives, activities, extras=(), extras_first=False):
     topic = module_title.split(": ", 1)[-1]
     number = module_title.split(":")[0]
     return f'''{CSS}<div id="dp-wrapper" class="dp-wrapper dp-flat-sections variation-2 cp-bg-dp-primary" style="background-color: #ffffff; color: #000000;" data-header-class="dp-header dp-flat-sections variation-2" data-nav-class="container-fluid dp-link-grid dp-flat-sections variation-2 dp-fs-2" data-img-url="https://designtools.ciditools.com/css/images/banner_desert_sky.png"><header class="dp-header dp-flat-sections variation-2 cp-bg-dp-primary" style="background-color: #0055a4; color: #ffffff;">
@@ -121,12 +121,12 @@ def overview_html(module_title, intro, objectives, activities, extras=()):
 <p>By the end of this module, you will be able to:</p>
 {md_to_html(objectives)}
 </div>
-<div class="dp-content-block cp-bg-dp-white" style="color: #000000; background-color: #f5faff;">
+{extra_sections_html(extras) if extras_first else ""}<div class="dp-content-block cp-bg-dp-white" style="color: #000000; background-color: #f5faff;">
 <h3 class="dp-has-icon" {H3}><i class="dp-icon fas fa-laptop-code cp-bg-dp-secondary" aria-hidden="true">{ICON}</i> Activities and Assignments</h3>
 <p>In this module, you will work through the following, in order:</p>
 {activities}
 </div>
-{extra_sections_html(extras)}</div>{JS}'''
+{"" if extras_first else extra_sections_html(extras)}</div>{JS}'''
 
 
 def get_all(path):
