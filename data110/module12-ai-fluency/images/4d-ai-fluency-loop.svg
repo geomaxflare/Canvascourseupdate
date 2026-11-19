@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1000" viewBox="0 0 1200 1000" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333333"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1b7f5a"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b00020"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="1000" fill="#ffffff"/>
+  <text x="600" y="48" text-anchor="middle" font-size="36" font-weight="700" fill="#1a1a1a">The 4D AI Fluency Loop</text>
+
+  <!-- Diligence ring -->
+  <circle cx="600" cy="520" r="410" fill="#f6f2fb" stroke="#6b4fa0" stroke-width="6" stroke-dasharray="18 10"/>
+  <rect x="320" y="82" width="560" height="56" rx="28" fill="#6b4fa0"/>
+  <text x="600" y="119" text-anchor="middle" font-size="24" font-weight="700" fill="#ffffff">DILIGENCE: responsible use at every step</text>
+
+  <!-- forward: Delegation -> Description -->
+  <path d="M667,357 Q820,330 840,463" fill="none" stroke="#333333" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="780" y="292" font-size="19" fill="#1a1a1a">Hand off a task</text>
+  <text x="780" y="316" font-size="19" fill="#1a1a1a">AI is suited for</text>
+
+  <!-- forward: Description -> Discernment -->
+  <line x1="737" y1="570" x2="467" y2="570" stroke="#333333" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="600" y="555" text-anchor="middle" font-size="19" fill="#1a1a1a">AI produces output</text>
+
+  <!-- feedback: Discernment -> Description (clearer prompt) -->
+  <path d="M427,637 Q600,770 767,641" fill="none" stroke="#b00020" stroke-width="4" stroke-dasharray="10 6" marker-end="url(#arrowRed)"/>
+  <text x="600" y="738" text-anchor="middle" font-size="19" font-weight="700" fill="#b00020">Weak result? Write a clearer prompt</text>
+
+  <!-- feedback: Discernment -> Delegation (different split or tool) -->
+  <path d="M293,503 Q300,300 497,292" fill="none" stroke="#b00020" stroke-width="4" stroke-dasharray="10 6" marker-end="url(#arrowRed)"/>
+  <text x="415" y="408" font-size="19" font-weight="700" fill="#b00020">Wrong task split or tool?</text>
+  <text x="415" y="432" font-size="19" font-weight="700" fill="#b00020">Re-delegate</text>
+
+  <!-- exit -->
+  <line x1="372" y1="664" x2="440" y2="776" stroke="#1b7f5a" stroke-width="4" marker-end="url(#arrowGreen)"/>
+  <text x="378" y="708" text-anchor="end" font-size="19" font-weight="700" fill="#1b7f5a">Good result</text>
+  <rect x="430" y="778" width="340" height="64" rx="12" fill="#e8f5ee" stroke="#1b7f5a" stroke-width="3"/>
+  <text x="600" y="805" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a1a">Use the result</text>
+  <text x="600" y="830" text-anchor="middle" font-size="17" fill="#1a1a1a">and disclose it with an AID statement</text>
+
+  <!-- nodes -->
+  <circle cx="600" cy="290" r="95" fill="#0055a4"/>
+  <text x="600" y="282" text-anchor="middle" font-size="29" font-weight="700" fill="#ffffff">Delegation</text>
+  <text x="600" y="312" text-anchor="middle" font-size="18" fill="#ffffff">Should AI do this?</text>
+
+  <circle cx="840" cy="570" r="95" fill="#1b7f5a"/>
+  <text x="840" y="562" text-anchor="middle" font-size="29" font-weight="700" fill="#ffffff">Description</text>
+  <text x="840" y="590" text-anchor="middle" font-size="18" fill="#ffffff">Did I explain it</text>
+  <text x="840" y="612" text-anchor="middle" font-size="18" fill="#ffffff">clearly?</text>
+
+  <circle cx="360" cy="570" r="95" fill="#a33d00"/>
+  <text x="360" y="562" text-anchor="middle" font-size="27" font-weight="700" fill="#ffffff">Discernment</text>
+  <text x="360" y="590" text-anchor="middle" font-size="18" fill="#ffffff">Is the output</text>
+  <text x="360" y="612" text-anchor="middle" font-size="18" fill="#ffffff">right?</text>
+
+  <!-- diligence actions -->
+  <text x="600" y="972" text-anchor="middle" font-size="21" font-weight="700" fill="#6b4fa0">Protect data  ·  Check for bias  ·  Disclose AI use  ·  Own the result</text>
+</svg>

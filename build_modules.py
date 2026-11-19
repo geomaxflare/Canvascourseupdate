@@ -61,6 +61,10 @@ def md_to_html(md):
                 i += 1
             out.append(PRE.format(html.escape("\n".join(code), quote=False)))
             i += 1
+        elif re.match(r"!\[[^\]]*\]\([^)]+\)$", line):
+            alt, src = re.match(r"!\[([^\]]*)\]\(([^)]+)\)$", line).groups()
+            out.append(f'<p><img src="{html.escape(src)}" alt="{html.escape(alt)}" style="max-width: 100%; height: auto;"></p>')
+            i += 1
         elif line.startswith("### "):
             out.append(f"<h3>{inline(line[4:])}</h3>")
             i += 1
@@ -81,7 +85,7 @@ def md_to_html(md):
             out.append(f"<{tag}{start}>" + "".join(f"<li>{inline(t)}</li>" for t in items) + f"</{tag}>")
         elif line.strip():
             para = []
-            while i < len(lines) and lines[i].strip() and not re.match(r"(```|### |\||- |\d+\. )", lines[i]):
+            while i < len(lines) and lines[i].strip() and not re.match(r"(```|### |\||- |\d+\. |!\[)", lines[i]):
                 para.append(lines[i])
                 i += 1
             out.append(f"<p>{inline(' '.join(para))}</p>")

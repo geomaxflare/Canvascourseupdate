@@ -29,6 +29,8 @@ Most analytics work is **augmentation**: the analyst stays responsible for the q
 
 The competencies form a loop. Weak results from Discernment usually send you back to Description (a clearer prompt) or Delegation (a different task split or tool).
 
+![Infographic: the 4D AI Fluency Loop. Three circles form a cycle inside a dashed ring labeled Diligence: responsible use at every step. Delegation (Should AI do this?) leads to Description (Did I explain it clearly?) by handing off a task AI is suited for. Description leads to Discernment (Is the output right?) as the AI produces output. From Discernment, a weak result loops back to Description to write a clearer prompt, and a wrong task split or tool loops back to Delegation to re-delegate. A good result exits to Use the result and disclose it with an AID statement. Below the ring: Protect data, Check for bias, Disclose AI use, Own the result.](https://canvas.lorainccc.edu/courses/96040/files/15017257/preview)
+
 ### Applying the 4Ds: the census data cleaning problem
 
 Recall the SQL data cleaning exercise in Module 3: the census table had a duplicate Hocking County record, and some states were entered as "OHIO" instead of "OH".
